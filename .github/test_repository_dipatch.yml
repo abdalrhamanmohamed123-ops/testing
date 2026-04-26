@@ -1,0 +1,14 @@
+name: testing the repository_dispatch 
+on: 
+   push: 
+       branches: ["main"]       
+jobs:
+ first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.FIRST_TOCKEN }} 
+          repository: abdalrhamanmohamed123-ops/GH-actions-repo1
+          event-type: test
